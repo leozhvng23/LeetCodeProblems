@@ -1,2 +1,2 @@
 # LeetCodeProblems
-**A collection of LeetCode problems and my solutions**
+**A collection of LeetCode problems and my solutions.**
