@@ -12,7 +12,7 @@ class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         # iterative
 
-        stack = deque()
+        stack = []
         res = []
 
         while stack or root:
