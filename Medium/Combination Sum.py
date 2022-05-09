@@ -26,7 +26,6 @@ Input: candidates = [2], target = 1
 Output: []
 """
 
-
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
