@@ -24,3 +24,5 @@ class Solution:
             if v in hm:
                 return True
             hm[v] = i
+        
+        return False
