@@ -17,6 +17,10 @@ from typing import List
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+        # O(N) time
+        # O(N) space (excluding output array)
+        """
         n = len(nums)
         left = [1] * (n + 1)
         right = [1] * (n + 1)
@@ -27,3 +31,20 @@ class Solution:
 
         ans = [left[i] * right[i + 1] for i in range(n)]
         return ans
+        """
+
+        # O(N) time
+        # O(1) space (excluding output array)
+
+        n = len(nums)
+  
+        res = [1] * n
+        for i in range(1, n):
+            res[i] = res[i-1] * nums[i-1]
+        
+        p = 1
+        for i in range(n-1, -1, -1):
+            res[i] *= p
+            p *= nums[i]
+            
+        return res
