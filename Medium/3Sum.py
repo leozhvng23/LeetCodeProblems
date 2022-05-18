@@ -17,6 +17,9 @@ Output: []
 """
 from typing import List
 
+# O(n^2) time   O(nlogn) to sort
+# O(logn) to O(N) depending on the sorting algorithm
+# two pointer method
 
 def threeSum(self, nums: List[int]) -> List[List[int]]:
     if len(nums) < 3:
@@ -26,7 +29,6 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
     res = []
 
     for i in range(len(nums) - 2):
-
         num = nums[i]
         if num > 0:
             break
