@@ -51,15 +51,14 @@ class Solution:
         """
 
         # sliding window solution using hashmap
-
-        hashmap = {}
-        left = 0
-        length = 0
-
-        for right, char in enumerate(s):
-            if char in hashmap:
-                left = max(hashmap[char] + 1, left)
-            hashmap[char] = right
-            length = max(right - left + 1, length)
-
-        return length
+        
+        hm = {}
+        max_length, l = 0, -1
+       
+        for r,v in enumerate(s):
+            if v in hm:
+                l = max(l, hm[v]) # update left pointer to newest position
+            max_length = max(max_length, r - l)
+            hm[v] = r
+                    
+        return max_length
