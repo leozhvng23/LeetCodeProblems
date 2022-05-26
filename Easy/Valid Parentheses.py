@@ -64,3 +64,18 @@ def isValid(self, s: str) -> bool:
 
     return not stack
 
+    """
+    stack = []
+        hm = {'(': ')', '{':'}', '[':']'}
+        
+        for v in s:
+            if v in hm:
+                stack.append(hm[v])
+            else:
+                if len(stack) > 0 and stack[-1] == v:
+                    stack.pop()
+                else:
+                    return False
+        
+        return len(stack) == 0
+    """

@@ -5,8 +5,6 @@ The testcases will be generated such that the answer is unique.
 
 A substring is a contiguous sequence of characters within the string.
 
- 
-
 Example 1:
 
 Input: s = "ADOBECODEBANC", t = "ABC"
@@ -23,10 +21,8 @@ Input: s = "a", t = "aa"
 Output: ""
 Explanation: Both 'a's from t must be included in the window.
 Since the largest window of s only has one 'a', return empty string.
- 
 
 Constraints:
-
 m == s.length
 n == t.length
 1 <= m, n <= 105
