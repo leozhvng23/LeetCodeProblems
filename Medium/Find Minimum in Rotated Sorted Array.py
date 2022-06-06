@@ -27,13 +27,14 @@ from typing import List
 class Solution:
     def findMin(self, nums: List[int]) -> int:
 
-        left, right = 0, len(nums) - 1
-
-        while left < right:
-            mid = (left + right) // 2
-            if nums[mid] > nums[right]:
-                left = mid + 1
+        l, h = 0, len(nums) - 1
+        
+        while l < h:
+            m = (l+h) // 2
+            print(l, m, h)
+            if nums[m] > nums[h]:
+                l = m + 1
             else:
-                right = mid
-
-        return nums[left]
+                h = m
+                
+        return nums[l]
