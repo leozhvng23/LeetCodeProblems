@@ -28,6 +28,8 @@ from typing import List
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         # DP
+        # O(n^2) time
+        # O(1) space
         
         n = len(triangle)
         
