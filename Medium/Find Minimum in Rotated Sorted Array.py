@@ -31,7 +31,6 @@ class Solution:
         
         while l < h:
             m = (l+h) // 2
-            print(l, m, h)
             if nums[m] > nums[h]:
                 l = m + 1
             else:
