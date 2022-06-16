@@ -18,35 +18,20 @@ s consist of only digits and English letters.
 """
 
 def longestPalindrome(self, s: str) -> str:
-    if len(s) <= 1:
-        return s
-
-    same = True
-    for i in s:
-        if i != s[0]:
-            same = False
-    if same:
-        return s
-
-    i, left, right, last = 0, 0, 0, None
-
-    for i in range(len(s)):
-        l, r = i, i
-        while l > -1 and r < len(s):
-            if s[l] != s[r]:
-                break
-            if r - l + 1 > right - left + 1:
-                left, right = l, r
-            l, r = l - 1, r + 1
-        if s[i] == last:
-            l, r = i - 1, i
-            # same while loop as above
-            while l > -1 and r < len(s):
-                if s[l] != s[r]:
-                    break
-                if r - l + 1 > right - left + 1:
-                    left, right = l, r
-                l, r = l - 1, r + 1
-        last = s[i]
-
-    return s[left: right + 1]
+    # O(N^2) time
+        # O(1) space
+    
+        res, n = "", len(s)
+        
+        if n <= 1:
+            return s
+        
+        for i in range(n):
+            for r in range(i, i+2): # executes twice
+                l = i
+                while l > -1 and r < n and s[l] == s[r]:
+                    l, r = l - 1, r + 1
+                if r - l - 1 > len(res):
+                    res = s[l+ 1:r]
+        
+        return res
