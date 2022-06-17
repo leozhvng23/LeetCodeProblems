@@ -11,9 +11,10 @@ class TreeNode:
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         # bottom up recursion
-        def recursiveMaxDepth(node: Optional[TreeNode]) -> int:
-            if not node:
-                return 0
-            return max(recursiveMaxDepth(node.left), recursiveMaxDepth(node.right)) + 1
-
-        return recursiveMaxDepth(root)
+        def dfs(node):
+                if not node:
+                    return 0
+                else:
+                    return max(dfs(node.left), dfs(node.right)) + 1
+                    
+        return dfs(root) 
