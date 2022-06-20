@@ -16,13 +16,17 @@ class Solution:
         res = []
 
         while stack or root:
-            if root:
+            # traverse down to left most node
+            while root:
                 stack.append(root)
                 root = root.left
-            else:
-                curr = stack.pop()
-                res.append(curr.val)
-                root = curr.right
+                
+            # traverse up to parent
+            curr = stack.pop()
+            res.append(curr.val)
+
+            # advance to right child
+            root = curr.right
 
         return res
 
