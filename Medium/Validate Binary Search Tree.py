@@ -28,6 +28,8 @@ class TreeNode:
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         # inorder traversal
+        # O(N) time
+        # O(N) space
         
         stack = []
         prev = float('-inf')
