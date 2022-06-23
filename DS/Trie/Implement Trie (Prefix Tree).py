@@ -37,6 +37,9 @@ class Trie:
         self.root = TrieNode()
 
     def insert(self, word: str) -> None:
+        # O(m) time, m is the length of the word
+        # O(m) space
+        
         node = self.root
         for c in word:
             idx = ord(c) - ord('a')
@@ -46,6 +49,9 @@ class Trie:
         node.end = True
     
     def search(self, word: str) -> bool:
+        # O(m) time
+        # O(1) space
+
         node = self.root
         for c in word:
             idx = ord(c) - ord('a')
