@@ -26,6 +26,9 @@ class TreeNode:
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         # DP, DFS
+        # O(N) time, we visit each node no more than twice
+        # O(H) space, H is the height of the tree. On average O(logn), worst case O(N)
+
         res = float('-inf')
         
         def dfs(node):
