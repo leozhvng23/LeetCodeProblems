@@ -64,20 +64,19 @@ class Solution:
     
     def cloneGraph(self, node):
 
-        if not node:
-            return node
+        visited = {}
 
-        if node in self.visited:
-            return self.visited[node]
+        def dfs(root):
+            if root in visited:
+                 return visited[root]
+            else:
+                cloneNode = Node(root.val)
+                visited[root] = cloneNode
+                cloneNode.neighbors = [dfs(n) for n in root.neighbors]
+                return cloneNode
         
-        clone_node = Node(node.val, [])
-        
-        self.visited[node] = clone_node
-        
-        if node.neighbors:
-            clone_node.neighbors = [self.cloneGraph(n) for n in node.neighbors]
-
-        return clone_node
+        return dfs(node) if node else None
+             
   
     """
 

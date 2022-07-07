@@ -15,9 +15,39 @@ Example 2:
 Input: heights = [[2,1],[1,2]]
 Output: [[0,0],[0,1],[1,0],[1,1]]
 """
-
-from collections import deque
 from typing import List
+
+# O(M*N) time
+# O(M*N) space
+
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        
+        pacific, atlantic = set(), set()
+        M, N = len(heights), len(heights[0])
+                        
+        def dfs(r, c, ocean, prev):
+            if (r not in range(M) or c not in range(N) or 
+                (r, c) in ocean or heights[r][c] < prev):
+                return
+        
+            ocean.add((r,c))
+
+            for i, j in [[0,1],[0,-1],[1,0],[-1,0]]:
+                dfs(r+i, c+j, ocean, heights[r][c])
+                    
+        for r in range(M):
+            for c in range(N):
+                if r == 0 or c == 0:
+                    dfs(r, c, pacific, float('-inf'))
+                if r == M-1 or c == N-1:
+                    dfs(r, c, atlantic, float('-inf'))
+                
+        return list(pacific.intersection(atlantic))
+
+
+"""
+from collections import deque
 
 
 class Solution:
@@ -71,8 +101,6 @@ class Solution:
         # DP implementation
 
         # DOES NOT WORK!!! because its one directional so it does not work for all directions!
-
-        """
         
         if len(heights) == 0 or len(heights[0]) == 0:
             return []
@@ -122,4 +150,4 @@ class Solution:
         print(pacific)
         
         return ans
-        """
+"""
