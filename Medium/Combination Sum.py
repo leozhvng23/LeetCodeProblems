@@ -26,23 +26,21 @@ Input: candidates = [2], target = 1
 Output: []
 """
 
+from typing import List
+
+
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        
         res = []
-        n = len(candidates)
         
-        # [2,3,6,7]
+        def backtrack(idx, cur, arr):
+            if cur == target:
+                res.append(arr)
+            elif cur < target and idx < len(candidates):
+                backtrack(idx, cur + candidates[idx], arr + candidates[idx])
+                backtrack(idx + 1, cur, arr)
         
-        def dfs(i, path, summ):
-            if summ >= target or i>= n:
-                if summ == target:
-                    res.append(path)
-                return
-            num = candidates[i]
-            dfs(i, path + [num], summ + num) # current node [2,3,6,7]
-            dfs(i+1, path, summ) # next node [3,6,7]
-                
-        if n > 0:
-            dfs(0, [], 0)
-                
+        backtrack(0, 0, [])
+        
         return res
