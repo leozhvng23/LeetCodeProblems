@@ -61,6 +61,38 @@ class Solution:
         return True
 
 
+        """
+        UNVISITED, VISITING, VISITED = 0, -1, 1
+
+        G = defaultdict(list)
+        for course in prerequisites:
+            G[course[0]].append(course[1])
+            
+        status = [UNVISITED for _ in range(numCourses)]
+
+        def isCycle(course):
+            if status[course] == VISITING:
+                return True
+            if status[course] == VISITED:
+                return False
+            
+            status[course] = VISITING
+            for prereq in G[course]:
+                if isCycle(prereq):
+                    return True
+            status[course] = VISITED
+            
+            return False
+        
+        for course in range(numCourses):
+            if isCycle(course):
+                return False
+            
+        return True
+        
+        """
+
+
 """
 basically this problem asks us to find if there are any cycles in the graph
 to check for cycles, run dfs and check to see if there are back edges. back edges
