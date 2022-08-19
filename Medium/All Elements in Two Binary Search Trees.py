@@ -26,7 +26,6 @@ class Solution:
 
         return arr + list(reversed(arr1 or arr2))
 
-
         # shorter version
         """
         def dfs(root):
@@ -39,4 +38,3 @@ class Solution:
             
         return res + list(reversed(el1 or el2))
         """
-

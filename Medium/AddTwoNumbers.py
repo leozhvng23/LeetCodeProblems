@@ -63,7 +63,3 @@ Time complexity : O(max(m, n)) Assume that m and n represents the length of l1 a
 
 Space complexity : O(max(m, n)). The length of the new list is at most max(m,n)+1.
 """
-
-
-
-

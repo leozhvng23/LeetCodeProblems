@@ -26,20 +26,20 @@ from typing import List
 # O(N) time
 # O(1) space
 
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        
+
         def water(i, j):
-            return (j - i) * min(height[i], height[j]) 
-        
+            return (j - i) * min(height[i], height[j])
+
         l, r, most = 0, len(height)-1, 0
 
         while l < r:
-            most = max(most, water(l,r))
+            most = max(most, water(l, r))
             if height[l] <= height[r]:
                 l += 1
             else:
                 r -= 1
 
         return most
-
