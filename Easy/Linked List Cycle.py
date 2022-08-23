@@ -26,13 +26,14 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        hm = set()
-        p = head
-        while p:
-            hm.add(p)
-            if p.next in hm:
+        cur1 = cur2 = head
+        
+        while cur2 and cur2.next:            
+            cur1, cur2 = cur1.next, cur2.next.next
+            if cur1 == cur2:
                 return True
-            p = p.next
+        
         return False
