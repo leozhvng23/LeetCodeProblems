@@ -5,7 +5,6 @@ Return the fewest number of coins that you need to make up that amount. If that 
 
 You may assume that you have an infinite number of each kind of coin.
 
- 
 
 Example 1:
 
@@ -36,15 +35,14 @@ class Solution:
             for c in coins:
                 if i >= c and opt[i-c] != float('inf'):
                         opt[i] = min(opt[i], opt[i-c] + 1)
-                        
-        return opt[amount] if opt[amount] != float('inf') else -1 
+
+        return opt[amount] if opt[amount] != float('inf') else -1
         """
-        opt = [float('inf')] * (amount + 1)
+        opt = [float("inf")] * (amount + 1)
         opt[0] = 0
-        
+
         for coin in coins:
             for x in range(coin, amount + 1):
                 opt[x] = min(opt[x], opt[x - coin] + 1)
 
-        return opt[amount] if opt[amount] != float('inf') else -1 
-
+        return opt[amount] if opt[amount] != float("inf") else -1
