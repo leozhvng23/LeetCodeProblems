@@ -25,32 +25,33 @@ Output:
 ]
 """
 
+
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         # each number can only be used once
         [1, 1, 2, 5, 6, 7, 10]
-        
+
         res = []
         n = len(candidates)
         candidates.sort()
-        
+
         def dfs(idx, path, target):
-            if target <=0:
+            if target <= 0:
                 if target == 0:
                     res.append(path)
-                return        
-            
+                return
+
             # keep track of previous
             prev = -1
-            
+
             for i in range(idx, n):
                 num = candidates[i]
                 if num == prev:
-                    continue # skip same number
-                dfs(i+1, path + [num], target - num)
+                    continue  # skip same number
+                dfs(i + 1, path + [num], target - num)
                 prev = num
-            
+
         if n > 0:
             dfs(0, [], target)
-            
+
         return res
