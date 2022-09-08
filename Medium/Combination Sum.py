@@ -38,7 +38,7 @@ class Solution:
             if cur == target:
                 res.append(arr)
             elif cur < target and idx < len(candidates):
-                backtrack(idx, cur + candidates[idx], arr + candidates[idx])
+                backtrack(idx, cur + candidates[idx], arr + [candidates[idx]])
                 backtrack(idx + 1, cur, arr)
         
         backtrack(0, 0, [])
