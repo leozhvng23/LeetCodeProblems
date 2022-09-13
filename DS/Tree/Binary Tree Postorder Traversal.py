@@ -11,7 +11,7 @@ class TreeNode:
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
 
-        stack = deque()
+        stack = []
         res = []
 
         while stack or root:
@@ -19,9 +19,8 @@ class Solution:
                 stack.append(root)
                 res.append(root.val)
                 root = root.right
-            else:
-                node = stack.pop()
-                root = node.left
+            node = stack.pop()
+            root = node.left
 
         # return in reverse order
         return res[::-1]
